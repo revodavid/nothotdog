@@ -62,10 +62,17 @@ Download the file `keys.txt` and provide the keys listed from the Azure Portal. 
 of the file, `region`, leave as `eastus`. For the remaining keys, visit your `qcon` resource
 group in the [Azure Portal](https://portal.azure.com) and then:
 
+1. Visit https://portal.azure.com (and sign in if needed)
+1. Look at the resources in "Resources / NOTHOTDOG" on your dashboard. (If you don't see it, click on Resource Groups in the left menu)
 1. Click on the API resource for Custom Vision `nothotdog-customvision`
-2. In the menu, click on "keys"
-3. Click the "copy to clipboard" next to KEY 1. (You can ignore KEY 2).
-4. Paste the key into the `custom` entry in keys.txt
+1. In the menu, click on "Keys"
+1. Click the "copy to clipboard" next to KEY 1. (You can ignore KEY 2).
+1. Paste the key into the `vision` entry in `keys.txt`
+1. Return to your `nothotdog` resource group
+1. Click on the API resource `nothotdogcustomvis_Prediction`
+1. In the menu, click on "Keys"
+1. Click the "copy to clipboard" next to KEY 1. (You can ignore KEY 2).
+1. Paste the key into the `cvpred` entry in `keys.txt`
 
 Your final `keys.txt` file will look like this, but with different (working) keys:
 
@@ -73,6 +80,7 @@ Your final `keys.txt` file will look like this, but with different (working) key
        key
 region eastus
 custom 1632b49e2930430694a9bbd3ab0c0cc2
+cvpred 37eb1f0e5fd34253939350197ae3d933
 ```
 
 ## Get started!
