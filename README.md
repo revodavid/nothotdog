@@ -1,9 +1,9 @@
 # Not Hotdog: An application to detect images of hotdogs
 
-_An example of the Microsoft Custom Vision API. inspired by 
+_An example of the Microsoft Custom Vision API, inspired by 
 [Silicon Valley](https://www.youtube.com/watch?v=ACmydtFDTGs)_
 
-David M Smith (\@revodavid), Developer Advocate at Microsoft
+David M Smith ([\@revodavid](https://twitter.com/revodavid)), Developer Advocate at Microsoft
 
 ## Requirements
 
