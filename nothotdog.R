@@ -16,7 +16,7 @@ library(httr)
 library(jsonlite)
 
 ## Read in a file of URLs of images of hotdogs, and also a file
-## of URL of images that are somewhat similar to, but not, hotdogs
+## of URLs of images that are somewhat similar to, but not, hotdogs
 hotdogs <- scan("hotdogs-good.txt",what=character())
 nothotdogs <- scan("nothotdogs-good.txt", what=character())
 
@@ -25,7 +25,14 @@ nothotdogs <- scan("nothotdogs-good.txt", what=character())
 ## nothotdog-find-data.R if you want to see how it was done.
 
 ## Retrieve API keys from keys.txt file, set API endpoint 
-keys <- read.table("keysds.txt", header=TRUE, stringsAsFactors = FALSE)
+keys <- read.table("keys.txt", header=TRUE, stringsAsFactors = FALSE)
+
+## Check to see if the default keys.txt file is still there
+region <- keys["region",1]
+if (region=="ERROR-EDIT-KEYS.txt-FILE") 
+ stop("Edit the file keys.txt to provide valid keys. See README.md for details.")
+
+## retrieve custom vision key
 cvision_api_key <- keys["custom",1]
 cvision_api_endpoint <- "https://southcentralus.api.cognitive.microsoft.com/customvision/v1.1/Training"
 
@@ -43,7 +50,7 @@ domains.Food <- domains[[2]]$Id
 
 ## Create a project
 createURL <- paste0(cvision_api_endpoint, "/projects?",
-                    "name=qconhotdog&",
+                    "name=nothotdogapp&",
                     'description=NotHotdog&',
                     'domainId=',domains.Food)
 
@@ -109,10 +116,8 @@ uploadURLs <- function(id, tagname, urls) {
 uploadURLs(cvision_id, tags["hotdog"], hotdogs)
 uploadURLs(cvision_id, tags["nothotdog"], nothotdogs)
 
-
 ## Get status of projects
 projURL <- paste0(cvision_api_endpoint, "/projects/")
-                  
 
 APIresponse = GET(url = projURL,
                    content_type_json(),
@@ -121,9 +126,9 @@ APIresponse = GET(url = projURL,
                    encode="json")
 
 projStatus <- content(APIresponse)
-print(projStatus[[1]]$Id)
-print(cvision_id)
 
+print(projStatus[[1]]$Id)
+print(cvision_id) # should be the same
 
 ## Train project
 trainURL <- paste0(cvision_api_endpoint, "/projects/",
@@ -155,7 +160,7 @@ iterStatus <- function(id) {
  content(APIresponse)$Status
 }
 
-## Keep checking this until the statis is Completed
+## Keep checking this until the status is "Completed"
 iterStatus(train.id)
 
 ## Next, let's create some predictions from our model
@@ -171,7 +176,7 @@ iterStatus(train.id)
 ## 7. Copy the key listed by "Set Prediction-Key Header to:" to cvision_pred_key below
 
 cvision_api_endpoint_pred <- "https://southcentralus.api.cognitive.microsoft.com/customvision/v1.1/Prediction"
-cvision_pred_key="f39a6e96c89c4b08ae660b2e0d4145c5"
+cvision_pred_key <- keys["cvpred",1]
 
 ## Function to generate predictions
 
@@ -208,7 +213,6 @@ hotdog_predict <- function(imageURL, threshold = 0.5) {
   names(msg) <- imageURL[1]
   msg
 }
-
 
 hotdog_predict(hotdogs[1])
 hotdog_predict(nothotdogs[1])
