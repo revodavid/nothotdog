@@ -16,7 +16,7 @@ burgers <- scan("hamburger.txt", what=character())
 tacos <- scan("tacos.txt", what=character())
 
 ## so we can reproduce this later
-set.seed(3302018)
+set.seed(3302018) 
 
 ## We won't need many images to build a Not Hotdog classifier, so let's grab
 ## 100 images. We'll actually lose about 30% to bad URLs further down the line
