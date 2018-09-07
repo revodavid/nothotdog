@@ -16,11 +16,13 @@ library(httr)
 library(jsonlite)
 
 ## Read in a file of URLs of images of hotdogs, and also a file
-## of URLs of images that are somewhat similar to, but not, hotdogs
+## of URLs of images that are somewhat similar to -- but not -- hotdogs.
+## The URLs were good as of April 2018, but since then a few URLs have started 
+## to fail or return thumbnail "errors", so a manual review will be necessary (see below).
 hotdogs <- scan("hotdogs-good.txt",what=character())
 nothotdogs <- scan("nothotdogs-good.txt", what=character())
 
-## NOTE: We created the file hotdogs-good.txt and nothotdogs-good.txt
+## NOTE: We created the files hotdogs-good.txt and nothotdogs-good.txt
 ## using ImageNet data and some visual inspection. See the file 
 ## nothotdog-find-data.R if you want to see how it was done.
 
@@ -115,6 +117,17 @@ uploadURLs <- function(id, tagname, urls) {
 
 uploadURLs(cvision_id, tags["hotdog"], hotdogs)
 uploadURLs(cvision_id, tags["nothotdog"], nothotdogs)
+
+## If either of the calls above returned FALSE, that means at least one image 
+## couldn't be uploaded. This is most likely due to a bad URL, and the
+## issue can safely be ignored. It just means you'll have fewer images to train with.
+
+## If you want to review the images you've uploaded,
+## this is a good time to visit https://customvision.ai
+## Log in using the same Azure account you used to generate the keys,
+## browse to your project and click the "Training Images" tab.
+## There, you can review the uploaded images and delete images or adjust
+## tags as needed.
 
 ## Get status of projects
 projURL <- paste0(cvision_api_endpoint, "/projects/")
