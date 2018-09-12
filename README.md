@@ -5,6 +5,14 @@ _An example of the Microsoft Custom Vision API, inspired by
 
 David M Smith ([\@revodavid](https://twitter.com/revodavid)), Developer Advocate at Microsoft
 
+## Companion Resources
+
+[Blog post](http://blog.revolutionanalytics.com/2018/04/not-hotdog.html) (Revolutions blog, April 2018)
+
+[Video: QCon.ai Conference](http://blog.revolutionanalytics.com/2018/07/r-for-ai-video.html) (San Francisco, July 2018) 
+
+[Slides: EARL Conference](https://1drv.ms/p/s!AmZ4s9FA7xRJjmgE_lQKhUzWz13k) (London, September 2018).
+
 ## Requirements
 
 To run this script, you will need:
