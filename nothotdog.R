@@ -141,7 +141,7 @@ APIresponse = GET(url = projURL,
 projStatus <- content(APIresponse)
 
 print(projStatus[[1]]$Id)
-print(cvision_id) # should be the same
+print(cvision_id) # should be the same, if you've just trained the model
 
 ## Train project
 trainURL <- paste0(cvision_api_endpoint, "/projects/",
@@ -173,21 +173,24 @@ iterStatus <- function(id) {
  content(APIresponse)$Status
 }
 
-## Keep checking this until the status is "Completed"
+## Training is asynchronous. Check until the status is "Completed"
 iterStatus(train.id)
 
-## Next, let's create some predictions from our model
-## For the next part, you will need to retrieve your prediction key
-## from the customvision.ai service, as follows:
+## Next, let's create some predictions from our model.
+## For this next part, you will need to your prediction key, which was created 
+## for you 
 
+## You can also retrieve your prediction key from the customvision.ai service, as follows:
 ## 1. Visit https://customvision.ai
 ## 2. Click "Sign In"
-## 3. Wait for projects to load, and then click your "qconhotdog" project
+## 3. Wait for projects to load, and then click your project
 ## 4. Click on Performance. Here you can check the precision and recall of your trained model.
 ## 5. Click on Prediction URL, and look at the "If you have an image URL" section
 ## 6. Check that the URL in the gray box matches cvision_api_endpoint_pred, below
 ## 7. Copy the key listed by "Set Prediction-Key Header to:" to cvision_pred_key below
 
+## With your prediction key in the keys.txt file we imported earlier,
+## store the prediction key in cvision_api_endpoint_pred:
 cvision_api_endpoint_pred <- "https://southcentralus.api.cognitive.microsoft.com/customvision/v1.1/Prediction"
 cvision_pred_key <- keys["cvpred",1]
 
@@ -236,7 +239,7 @@ example.hotdogs <- c(
  "https://qz.com/wp-content/uploads/2017/07/hotdogs2__2__720.jpg?quality=80&strip=all",
  "http://www.americangarden.us/wp-content/uploads/2016/10/Recipe_Hot-dog-sandwich.jpg",
  "http://www.hot-dog.org/sites/default/files/pictures/hot-dogs-on-the-grill-sm.jpg",
- "https://www.dairyqueen.com/Global/Food/Hot-Dogs_8-to-1_470x500.jpg?width=&height=810"
+ "https://www.dairyqueen.com/Global/Food/Hot-Dogs_8-to-1_470x500.jpg"
 )
 
 ## and a few Not Hotdog images to try
