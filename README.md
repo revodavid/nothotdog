@@ -11,7 +11,7 @@ David M Smith ([\@revodavid](https://twitter.com/revodavid)), Developer Advocate
 
 [Video: QCon.ai Conference](http://blog.revolutionanalytics.com/2018/07/r-for-ai-video.html) (San Francisco, July 2018) 
 
-[Slides: EARL Conference](https://1drv.ms/p/s!AmZ4s9FA7xRJjmgE_lQKhUzWz13k) (London, September 2018).
+[Slides: EARL Conference](https://1drv.ms/p/s!AmZ4s9FA7xRJjnR1-XUnlcWJ85JK) (London, September 2018).
 
 ## Requirements
 
