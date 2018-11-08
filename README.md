@@ -7,7 +7,8 @@ David M Smith ([\@revodavid](https://twitter.com/revodavid)), Developer Advocate
 
 ## Companion Resources
 
-[Blog post](http://blog.revolutionanalytics.com/2018/04/not-hotdog.html) (Revolutions blog, April 2018)
+Blog Posts: [Not Hotdog with Custom Vision](http://blog.revolutionanalytics.com/2018/04/not-hotdog.html) (Revolutions blog, April 2018); 
+[Not Hotdog Shiny App](https://blog.revolutionanalytics.com/2018/09/not-hotdog-a-shiny-app-using-the-custom-vision-api.html) (Revolutions blog, September 2018).
 
 [Video: QCon.ai Conference](http://blog.revolutionanalytics.com/2018/07/r-for-ai-video.html) (San Francisco, July 2018) 
 
