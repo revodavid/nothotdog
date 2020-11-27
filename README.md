@@ -20,7 +20,7 @@ To run this script, you will need:
 
 1. [R](http://www.r-project.org). Any version of R later than R 3.4.0 should work. 
 
-1. A [Microsoft account](https://account.microsoft.com/account). You can use an existing Outlook 365
+1. A [Microsoft account](https://account.microsoft.com/account?WT.mc_id=opensource-0000-davidsmi). You can use an existing Outlook 365
 or Xbox Live account, or create a new one.
 
 1. A Microsoft Azure subscription. If you don't already have an Azure subscription, you can visit
@@ -33,7 +33,7 @@ set up everything you need.
 
 ## Log in to the Azure Portal
 
-1. Visit https://portal.azure.com 
+1. Visit https://portal.azure.com/?WT.mc_id=opensource-0000-davidsmi 
 2. Sign in with your Microsoft Account. If you don't have a Microsoft account, use the 
    links above to create one for free.
 
@@ -42,7 +42,7 @@ set up everything you need.
 In Azure, a Resource Group is a collection of services you have created. It groups services
 together, and makes it easy to bulk-delete things later on. We'll create one for this lab.
 
-1. Visit https://portal.azure.com (and sign in if needed)
+1. Visit https://portal.azure.com/?WT.mc_id=opensource-0000-davidsmi (and sign in if needed)
 2. Click "Resource Groups" in the left column
 3. Click "+ Add"
     * Resource Group Name: nothotdog
@@ -54,7 +54,7 @@ A notification will appear in the top right. Click the button "Pin to Dashboard"
 
 ## Create authorization keys for Custom Vision
 
-1. Visit https://portal.azure.com (and sign in if needed)
+1. Visit https://portal.azure.com/?WT.mc_id=opensource-0000-davidsmi (and sign in if needed)
 2. Click "+ Create a Resource" (top-left corner)
 3. With the "Search the Marketplace" box, search for "Custom Vision Service"
 4. Select "Custom Vision Service (preview)" and click "Create"
@@ -70,10 +70,10 @@ A notification will appear in the top right. Click the button "Pin to Dashboard"
 
 Download the file `keys.txt` and provide the keys listed from the Azure Portal. For the first line
 of the file, `region`, leave as `eastus`. For the remaining keys, visit your `qcon` resource
-group in the [Azure Portal](https://portal.azure.com) and then:
+group in the [Azure Portal](https://portal.azure.com/?WT.mc_id=opensource-0000-davidsmi) and then:
 
 1. Open the `keys.txt` file and change the `region` entry to `southcentralus`
-1. Visit https://portal.azure.com (and sign in if needed)
+1. Visit https://portal.azure.com/?WT.mc_id=opensource-0000-davidsmi (and sign in if needed)
 1. Look at the resources in "Resources / NOTHOTDOG" on your dashboard. (If you don't see it, click on Resource Groups in the left menu)
 1. Click on the API resource for Custom Vision `nothotdog-customvision`
 1. In the menu, click on "Keys"
